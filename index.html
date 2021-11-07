@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta content="width=device-width, initial-scale=1" name="viewport" />
+  <title>Intentional page</title>
+  <link href="https://fonts.googleapis.com" rel="preconnect">
+  <link crossorigin href="https://fonts.gstatic.com" rel="preconnect">
+  <link href="https://fonts.googleapis.com/css2?family=Mochiy+Pop+P+One&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary: "#000";
+      --secondary: "#000";
+      --fontColor: "#000";
+    }
+    body {
+      margin: 0;
+      padding: 0;
+      background: linear-gradient(to right, var(--primary), var(--secondary));
+      color: var(--fontColor);
+      font-family: 'Mochiy Pop P One', sans-serif;
+    }
+
+    textarea, input {
+      padding: 12px 16px;
+      border-radius: 6px;
+      outline: none;
+      border: none;
+      min-width: 280px;
+      font-size: 22px;
+      resize: vertical;
+      background: rgba(255, 255, 255, 0.5);
+      box-shadow: 0 1px 2px var(--secondary);
+      transition: .3s ease-out;
+    }
+
+    textarea:focus, input:focus {
+      box-shadow: 0 4px 8px var(--secondary);
+      background: rgba(255, 255, 255, 0.85);
+    }
+    h1, h2 {
+      text-align: center
+    }
+    h1 {
+      font-size: 2.5em;
+    }
+  </style>
+</head>
+<body>
+<form style="display: flex; flex-direction: column; align-items: center; justify-content: center; min-height: 100vh;">
+  <h1><label for="intention">What is your intention?</label></h1>
+  <textarea id="intention" name="intention"></textarea>
+<!--  <h2><label for="time">How much time do you devote to it?</label></h2>-->
+<!--  <input id="time" name="time">-->
+</form>
+<script>
+  const themes = [
+    {
+      primary: "#FFEDBC",
+      secondary: "#ED4264",
+      clock: "#000",
+      fontColor: "#fff"
+    },
+    {
+      primary: "#24c6dc",
+      secondary: "#514a9d",
+      clock: "#000",
+      fontColor: "#fff"
+    },
+    {
+      primary: "#283048",
+      secondary: "#859398",
+      clock: "#fff",
+      fontColor: "#fff"
+    },
+    {
+      primary: "#232526",
+      secondary: "#414345",
+      clock: "#fff",
+      fontColor: "#fff"
+    },
+    {
+      primary: "#16222a",
+      secondary: "#3a6073",
+      clock: "#fff",
+      fontColor: "#fff"
+    }
+  ];
+
+  function setRandomTheme() {
+    const randIndex = Math.floor(Math.random() * themes.length);
+    const theme = themes[randIndex];
+    const root = document.documentElement;
+    root.style.setProperty('--primary', theme.primary);
+    root.style.setProperty('--secondary', theme.secondary);
+    root.style.setProperty('--clock', theme.clock);
+    root.style.setProperty('--fontColor', theme.fontColor);
+  }
+
+  setRandomTheme();
+</script>
+</body>
+</html>
